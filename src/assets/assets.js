@@ -5,7 +5,6 @@ import menu_icon from './menu_icon.svg'
 import star_icon from './star_icon.svg'
 import left_arrow from './left_arrow.svg'
 import right_arrow from './right_arrow.svg'
-
 import Brand_Img_ from './Brand_Img_.png'
 import Project_img_1 from './Project_img_1.jpg'
 import Project_img_2 from './Project_img_2.jpg'
@@ -19,7 +18,13 @@ import Profile_img_3 from './Profile_img_3.jpg'
 import Profile_img_4 from './Profile_img_4.jpg'
 import Profile_img_5 from './Profile_img_5.jpg'
 import EstateLogo from './EstateLogo.png'
-
+import Location_img1 from './Location_img1.avif'
+import Location_img2 from './Location_img2.jpg'
+import Location_img3 from './Location_img3.png'
+import Location_img4 from './Location_img4.jpg'
+import Location_img5 from './Location_img5.jpg'
+import Location_img6 from './Location_img6.jpg'
+import signupimage from './SignupImage.png'
 export const assets = {
     logo,
     logo_dark,
@@ -33,7 +38,8 @@ export const assets = {
     Project_img_4,
     left_arrow,
     right_arrow,
-    EstateLogo
+    EstateLogo,
+    signupimage
 }
 
 export const projectsData = [
@@ -75,7 +81,57 @@ export const projectsData = [
   }
   
   ];
-
+  export const locationData = [
+    {
+      title: "Riverfront Towers",
+      location: "Vijayawada",
+      description: "Airport Zone",
+      image: Location_img1
+    },
+    {
+      title: "Techpark Residences",
+      location: "Hyderabad",
+      description: "IT Hub",
+      image: Location_img2
+    },
+    {
+      title: "Coastal Retreat",
+      location: "Visakhapatnam",
+      description: "Beachside",
+      image: Location_img3
+    },
+    {
+      title: "Royal Gardens",
+      location: "Warangal",
+      description: "Historic Town",
+      image: Location_img4
+    },
+    {
+      title: "Verdant Oasis",
+      location: "Khammam",
+      description: "Eco Zone",
+      image: Location_img5
+    },
+    {
+      title: "Divine Heights",
+      location: "Tirupati",
+      description: "Temple City",
+      image: Location_img6
+    },
+    // {
+    //   title: "Mountain View Villas",
+    //   location: "Srikakulam",
+    //   description: "Nature Spot",
+    //   image: Project_img_7
+    // },
+    // {
+    //   title: "Bayfront Enclave",
+    //   location: "Kakinada",
+    //   description: "Port Area",
+    //   image: Project_img_8
+    // }
+  ];
+  
   export const reviewsData = [
     {
       name: "Naga sai",

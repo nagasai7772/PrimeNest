@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { assets } from "../assets/assets";
-
+import Signup from "./Signup";
+import { useNavigate } from "react-router-dom";
+import { div } from "framer-motion/client";
+import { button } from "framer-motion/m";
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [user,setUser]=useState(null)
+  const navigate=useNavigate()
   useEffect(() => {
+    const userData=JSON.parse(localStorage.getItem('user'))
+    if(userData)
+    {
+      setUser(userData)
+    }
     if (showMenu) {
       document.body.style.overflow = "hidden";
     } else {
@@ -11,9 +21,19 @@ const Navbar = () => {
     }
     return () => {
       document.body.style.overflow = "auto";
-    };
-  }, [showMenu]);
+    }
+   
 
+  }, [showMenu]);
+ const changeSignup=()=>
+ {
+  navigate('/signup')
+ }
+ const handleLogout=()=>
+ {
+  localStorage.removeItem('user')
+  setUser(null)
+ }
   return (
     <div className="absolute top-0 left-0 w-full z-10">
       <div className="container mx-auto flex justify-between items-center py-4 px-6 md:px-20 lg:px-32 bg-transparent">
@@ -31,10 +51,43 @@ const Navbar = () => {
           <a href="#Reviews" className="cursor-pointer hover:text-gray-400">
             Reviews
           </a>
+          <a
+            href="#WhyUs"
+            className="px-4 rounded-full inline-block"
+            onClick={() => setShowMenu(false)}
+          >
+            Why us
+          </a>
         </ul>
-        <button className="hidden md:block bg-white px-8 py-2 rounded-full">
-          Sign Up
-        </button>
+        {/* <button className="hidden md:block bg-white px-8 py-2 rounded-full" onClick={changeSignup}>
+          {user?`${user.name}`:'Sign Up'}
+        </button> */}
+    {user ? (
+      <>
+  <div className="md:flex flex-row items-center gap-4 px-4 py-2">
+    <span className="text-red-500 text-sm font-medium">
+      Welcome {user.name}
+    </span>
+  
+  </div>
+    <button
+    onClick={handleLogout}
+    className="hidden md:flex text-red-600 hover:underline text-sm px-4 py-2 bg-white rounded-full shadow"
+  >
+    Logout
+  </button>
+  </>
+) : (
+  <button
+    onClick={changeSignup}
+    className="hidden md:block bg-white text-blue-600 px-6 py-2 rounded-full shadow-md text-sm hover:bg-blue-100 transition"
+  >
+    Sign Up
+  </button>
+)}
+
+
+
         <img
           src={assets.menu_icon}
           onClick={() => setShowMenu(true)}
@@ -85,7 +138,19 @@ const Navbar = () => {
           >
             Reviews
           </a>
+          <a
+            href="#WhyUs"
+            className="px-4 rounded-full inline-block"
+            onClick={() => setShowMenu(false)}
+          >
+            Why us
+          </a>
+         {user?(
+          <p onClick={handleLogout}>Logout</p>
+         ):(<p onClick={changeSignup}>Signup</p>)
+         }
         </ul>
+      
       </div>
     </div>
   );
