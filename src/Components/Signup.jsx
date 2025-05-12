@@ -139,7 +139,13 @@ const Signup = () => {
 
 //     </div>
 
-<div className="flex flex-wrap justify-center items-center min-h-screen bg-gray-100 p-6">
+<motion.div
+ initial={{opacity:0,y:100}}
+      transition={{duration:1.5}}
+      whileInView={{opacity:1,y:0}}
+      viewport={{once:true}}
+      
+ className="flex flex-wrap justify-center items-center min-h-screen bg-gray-100 p-6">
  
   {showForm && (
     <form
@@ -228,7 +234,7 @@ const Signup = () => {
       className="w-full max-w-md md:max-w-lg lg:max-w-xl h-auto object-cover rounded-lg shadow-lg"
     />
   </div>
-</div>
+</motion.div>
 
   );
 };
