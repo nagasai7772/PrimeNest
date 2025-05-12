@@ -1,7 +1,7 @@
 import { assets } from "../assets/assets";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { motion } from "framer-motion";
 // import { useForm } from "react-hook-form";
 const Signup = () => {
   // const [name, setname] = useState('');
